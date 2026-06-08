@@ -2,6 +2,9 @@ package com.luggage.service;
 
 import com.luggage.domain.po.StoragePoint;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.luggage.domain.vo.StoragePointListVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IStoragePointService extends IService<StoragePoint> {
 
+    List<StoragePointListVO> listActivePoints();
 }
