@@ -31,3 +31,14 @@ build/
 
 ### VS Code ###
 .vscode/
+####
+其他
+*.md
+*.sql
+*.html
+*.png
+/docker
+/frontend
+/nginx-1.31.1
+/前端修改讲解
+/.claude

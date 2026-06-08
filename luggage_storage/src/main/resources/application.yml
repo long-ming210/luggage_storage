@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: luggage
+    version: 1.0.0
+  datasource:
+    url: jdbc:mysql://localhost:3306/luggage_storage?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.luggage.admin.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+knife4j:
+  enable: true
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+  # 排除所有非业务路径
+  paths-to-exclude:
+    - /error
+    - /error/**
+    - /login
+    - /login/**
+    - /logout
+    - /logout/**
+    - /actuator/**
+    - /webjars/**
+    - /v3/api-docs/**
+    - /swagger-ui/**
+    - /favicon.ico
+  jwt:
+    secret: "luggage_storage_system_secret_key_2026_secure"
+
