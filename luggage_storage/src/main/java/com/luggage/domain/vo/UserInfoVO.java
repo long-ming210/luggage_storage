@@ -10,6 +10,8 @@ public class UserInfoVO {
 
     private String email;
 
+    private String avatar;
+
     private Integer id;
 
 }

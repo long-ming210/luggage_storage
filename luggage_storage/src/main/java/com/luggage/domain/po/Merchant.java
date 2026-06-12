@@ -1,10 +1,6 @@
 package com.luggage.domain.po;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,17 +16,13 @@ import lombok.experimental.Accessors;
  * @since 2026-06-06
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("merchant")
 @ApiModel(value="Merchant对象", description="商户表")
-public class Merchant implements Serializable {
+public class Merchant extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "商户ID")
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
 
     @ApiModelProperty(value = "登录名")
     private String username;
@@ -43,12 +35,5 @@ public class Merchant implements Serializable {
 
     @ApiModelProperty(value = "联系电话")
     private String phone;
-
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createdAt;
-
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updatedAt;
-
 
 }

@@ -2,4 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.luggage.mapper.LockerSlotMapper">
 
+    <select id="selectSlotsWithStatus" resultType="com.luggage.domain.vo.SlotVO">
+        SELECT
+            ls.id,
+            ls.point_id,
+            ls.slot_number,
+            ls.size_type,
+            ls.price_per_hour,
+            ls.locker_device_id,
+            CASE
+                WHEN o.id IS NOT NULL THEN 'occupied'
+                WHEN ls.status = 'fault' THEN 'fault'
+                ELSE 'idle'
+            END AS status
+        FROM locker_slot ls
+        LEFT JOIN `order` o ON ls.id = o.slot_id AND o.status IN ('booked', 'stored')
+        WHERE ls.point_id = #{pointId}
+    </select>
+
 </mapper>

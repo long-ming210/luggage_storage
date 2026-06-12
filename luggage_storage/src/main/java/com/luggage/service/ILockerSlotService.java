@@ -2,6 +2,9 @@ package com.luggage.service;
 
 import com.luggage.domain.po.LockerSlot;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.luggage.domain.vo.SlotVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ILockerSlotService extends IService<LockerSlot> {
 
+    List<SlotVO> listSlotsByPointId(Long pointId);
 }

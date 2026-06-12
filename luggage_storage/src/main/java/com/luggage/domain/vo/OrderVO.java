@@ -1,14 +1,17 @@
-package com.luggage.domain.po;
+package com.luggage.domain.vo;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -19,13 +22,10 @@ import lombok.experimental.Accessors;
  * @since 2026-06-06
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
-@TableName("`order`")
-@ApiModel(value="Order对象", description="订单表")
-public class Order extends BaseEntity {
+public class OrderVO  {
 
-    private static final long serialVersionUID = 1L;
+    @ApiModelProperty(value = "订单ID")
+    private Long id;
 
     @ApiModelProperty(value = "订单号，全局唯一")
     private String orderNo;
@@ -42,12 +42,6 @@ public class Order extends BaseEntity {
     @ApiModelProperty(value = "预约时间")
     private LocalDateTime bookTime;
 
-    @ApiModelProperty(value = "实际存入时间")
-    private LocalDateTime storeTime;
-
-    @ApiModelProperty(value = "实际取出时间")
-    private LocalDateTime pickUpTime;
-
     @ApiModelProperty(value = "总金额（元）")
     private BigDecimal totalAmount;
 
@@ -60,4 +54,13 @@ public class Order extends BaseEntity {
     @ApiModelProperty(value = "用户电话")
     private String contactPhone;
 
+    @ApiModelProperty(value = "取件时间")
+    private LocalDateTime pickUpTime;
+
+    @ApiModelProperty(value = "存件时间")
+    private LocalDateTime storeTime;
+    @ApiModelProperty(value = "格口编号，如 A-01")
+    private String slotNumber;
+    @ApiModelProperty("寄存点名字")
+    private String pointName;
 }

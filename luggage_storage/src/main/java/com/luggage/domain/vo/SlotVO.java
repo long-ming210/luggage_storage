@@ -1,12 +1,10 @@
-package com.luggage.domain.po;
+package com.luggage.domain.vo;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -17,13 +15,10 @@ import lombok.experimental.Accessors;
  * @since 2026-06-06
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-@Accessors(chain = true)
-@TableName("locker_slot")
-@ApiModel(value="LockerSlot对象", description="格口表")
-public class LockerSlot extends BaseEntity {
+public class SlotVO implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    @ApiModelProperty(value = "格口ID")
+    private Long id;
 
     @ApiModelProperty(value = "所属寄存点ID")
     private Long pointId;
@@ -42,5 +37,6 @@ public class LockerSlot extends BaseEntity {
 
     @ApiModelProperty(value = "物理柜蓝牙设备ID（第二阶段用）")
     private String lockerDeviceId;
+
 
 }

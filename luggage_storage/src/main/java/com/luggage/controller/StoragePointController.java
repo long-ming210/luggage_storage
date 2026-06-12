@@ -3,9 +3,11 @@ package com.luggage.controller;
 
 import com.luggage.common.Result;
 import com.luggage.domain.po.StoragePoint;
+import com.luggage.domain.vo.SlotVO;
 import com.luggage.domain.vo.StoragePointListVO;
 import com.luggage.service.IStoragePointService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,7 @@ public class StoragePointController {
     public Result<List<StoragePointListVO>> listActivePoints() {
         return Result.success(storagePointService.listActivePoints());
     }
+
 
 
 }

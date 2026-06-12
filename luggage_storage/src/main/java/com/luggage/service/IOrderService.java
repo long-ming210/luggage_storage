@@ -1,7 +1,12 @@
 package com.luggage.service;
 
+import com.luggage.common.Result;
+import com.luggage.domain.dto.OrderDto;
 import com.luggage.domain.po.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.luggage.domain.vo.OrderVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +18,14 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IOrderService extends IService<Order> {
 
+    OrderVO addOrder(OrderDto orderDto);
+    void payOrder(Long id);
+    OrderVO storeOrder(Long id);
+    OrderVO pickupOrder(Long id);
+
+    Result<List<OrderVO>> listOrederVO();
+
+    OrderVO getOrderVOById(Long id);
+
+    Result<List<OrderVO>> listCurrentOrders();
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class StoragePointListVO {
+    //id
+    private Long id;
     // 寄存点信息
     private String name;
     // 详细地址

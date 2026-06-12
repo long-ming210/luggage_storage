@@ -2,6 +2,7 @@ package com.luggage.mapper;
 
 import com.luggage.domain.po.StoragePoint;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.luggage.domain.vo.SlotVO;
 import com.luggage.domain.vo.StoragePointListVO;
 
 import java.util.List;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface StoragePointMapper extends BaseMapper<StoragePoint> {
 
     List<StoragePointListVO> selectPointWithMinpriceWithSlot();
+
+
 }
